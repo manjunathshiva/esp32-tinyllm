@@ -146,6 +146,8 @@ also demonstrates the failure mode it was replaced for: given
 `The dragon opened its eyes and`, greedy emits "I will help you" five times in
 one block and "You are very kind and kind" twice.
 
+![Greedy decoding locking into a repeated sentence](media/demo-greedy.gif)
+
 Sampling reduces repetition; it does not remove it. A 559K-parameter core repeats
 regardless of decode rule, and sampled runs still show degenerate stretches. The
 honest claim is a difference of degree.
