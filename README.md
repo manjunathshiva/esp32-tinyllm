@@ -59,9 +59,20 @@ flash artifact are all in the repo via Git LFS, so a clone can flash immediately
 without training anything.
 
 ```bash
+git lfs install        # once per machine, BEFORE cloning
 git clone https://github.com/manjunathshiva/esp32-tinyllm
 cd esp32-tinyllm
 git lfs pull
+```
+
+Without `git lfs install`, `git lfs pull` prints "Skipping object checkout" and
+leaves ~133-byte text pointer files in place of the model — the flash then fails
+in a confusing way. Check you got the real thing:
+
+```bash
+shasum -a 256 firmware/model/model.bin
+# 14,912,332 bytes
+# dd22df35df128fab39b9e1738af8377bb493a778942e28f1d4a621a40c542a28
 ```
 
 Install the toolchain once:

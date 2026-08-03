@@ -59,19 +59,25 @@ arduino-cli monitor -p /dev/cu.usbmodem2101 --config baudrate=115200
 The model payload only needs reflashing after a new export. Firmware-only
 changes can be uploaded without rewriting the model partition.
 
-The model used for the measurements below has SHA-256:
+The model in this repo (`firmware/model/model.bin`, 14,912,332 bytes, val
+perplexity 11.36) has SHA-256:
 
 ```text
-21067f5d78113f6c64a8720b05ff7e5c774dab0276797a522f81a6797253d97c
+dd22df35df128fab39b9e1738af8377bb493a778942e28f1d4a621a40c542a28
 ```
 
-Expected boot diagnostics for the current artifact:
+Expected boot diagnostics for that artifact:
 
 ```text
 model: V=32768 D=96 L=6 H=4 F=66 P=128
-head staged int8: 2.53 MB
-PSRAM free after alloc: ~5100 KB
+head staged int8: 2.54 MB
+PSRAM free after alloc: 4328 KB
 ```
+
+Retraining produces a different checksum, so verify against your own export
+rather than this line. Note that the free-PSRAM figure moved once the output
+head was staged as int8: the head grew from 1.64MB to 2.54MB, so roughly 0.9MB
+of the PSRAM that older notes report as free is now the staged head.
 
 The current runtime measures 102.9ms per model step (9.72 tok/s compute-only);
 attached serial runs measure ~9.5 tok/s including output. On-device profile:
