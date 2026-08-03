@@ -11,6 +11,11 @@ memory by any normal reading. It fits because most of the model never enters RAM
 450 bytes of it are read per token. That idea is Google's Per-Layer Embeddings,
 from the Gemma models, applied to the memory hierarchy of a microcontroller.
 
+**▶ [Watch it run on real hardware](https://vimeo.com/1215094870)** — one
+unedited serial session: a story written from a typed opening line, greedy
+decoding locking into a repeated sentence, a 600-token run with the context
+window sliding three times, and the per-token timings on screen throughout.
+
 ## What it does
 
 ```
