@@ -211,4 +211,5 @@ derives from either.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). Copyright (c) 2026 Viacheslav Sierbov.
+MIT — see [`LICENSE`](LICENSE). Copyright (c) 2026 Viacheslav Sierbov and
+Copyright (c) 2026 Manjunath Janardhan.
