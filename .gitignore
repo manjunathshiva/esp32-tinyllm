@@ -1,0 +1,21 @@
+# python
+__pycache__/
+.venv/
+*.pyc
+
+# raw TinyStories download (300MB; re-fetch with data/prepare.py)
+data/*.txt
+
+# training outputs: the deploy checkpoint and its metrics are tracked (via LFS);
+# each ablation sweep run produces another 110MB .pt, so those stay local
+runs/*
+!runs/ple-cleandeploy-s0.pt
+!runs/ple-cleandeploy-s0.json
+
+# raw video / recordings (demo footage — keep out of the repo)
+video/
+videos/
+*.mp4
+*.mov
+*.MOV
+*.MP4
